@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommendation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-utensils"></i> Restaurant Recommendation System</h1>
+                <p class="subtitle">Find the Best Restaurant for You</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- User Input Section -->
+            <section class="input-section">
+                <div class="card">
+                    <h2><i class="fas fa-user-cog"></i> User Preferences</h2>
+                    <form id="preferenceForm">
+                        <div class="form-group">
+                            <label for="userId">User ID:</label>
+                            <input type="text" id="userId" placeholder="Enter user ID (e.g., user123)" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currentTime">Current Time:</label>
+                            <input type="datetime-local" id="currentTime" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mealType">Meal Type:</label>
+                            <select id="mealType" required>
+                                <option value="">Select meal type</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                                <option value="late-night">Late Night</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="priceRange">Price Range:</label>
+                            <select id="priceRange">
+                                <option value="">Any</option>
+                                <option value="1">$ (Budget)</option>
+                                <option value="2">$$ (Moderate)</option>
+                                <option value="3">$$$ (Expensive)</option>
+                                <option value="4">$$$$ (Very Expensive)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cuisine">Preferred Cuisine:</label>
+                            <select id="cuisine">
+                                <option value="">Any</option>
+                                <option value="Mexican">Mexican</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Indian">Indian</option>
+                                <option value="American">American</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Thai">Thai</option>
+                                <option value="Mediterranean">Mediterranean</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="groupSize">Group Size:</label>
+                            <select id="groupSize">
+                                <option value="1">1 person</option>
+                                <option value="2">2 people</option>
+                                <option value="3-4">3-4 people</option>
+                                <option value="5-8">5-8 people</option>
+                                <option value="9+">9+ people</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="goodForKids"> Good for Kids
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="outdoorSeating"> Outdoor Seating
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-search"></i> Get Recommendations
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="card">
+                    <h2><i class="fas fa-star"></i> Recommended Restaurants</h2>
+                    <div class="model-info">
+                        <div class="model-tabs">
+                            <button class="tab-btn active" data-model="hybrid">Hybrid Context-Aware Model</button>
+                            <button class="tab-btn" data-model="baseline">Baseline Collaborative Filtering</button>
+                        </div>
+                        <div class="model-description">
+                            <p id="modelDescription">
+                                <strong>Hybrid Context-Aware Model:</strong> Combines collaborative filtering with contextual features like time, day, and restaurant attributes to provide situationally appropriate recommendations.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="results-container" id="resultsContainer">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating recommendations...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Restaurant Recommendation System</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
